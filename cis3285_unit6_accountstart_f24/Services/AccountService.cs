@@ -55,10 +55,28 @@ namespace Services
         public void Withdrawal(string accountName, decimal amount)
         // withdrawal the given account into the account named
         {
-            throw new NotImplementedException();
+            //AccountBase acc = FindAccount(accountName);
+            //if (acc == null)
+            //    throw new ArgumentException("Account does not exist.");
+            //{ 
+            //if (amount > 0)
+            //{
+            //    acc.AddTransaction(-amount);
+            //}
+            //else
+            //{
+            //    throw new InvalidOperationException("Insufficient funds or invalid withdrawal amount.");
+            //}
+            //}
+            AccountBase acc = FindAccount(accountName);
+            if (acc == null)
+                throw new ArgumentException("Account does not exist.");
+            
+            // Call the dedicated Withdraw method
+            acc.Withdraw(amount); 
         }
 
-        private AccountBase FindAccount(string accountName)
+    private AccountBase FindAccount(string accountName)
         {
             if (accountsDictionary.ContainsKey(accountName))
             {
