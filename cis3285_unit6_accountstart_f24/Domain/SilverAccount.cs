@@ -10,7 +10,7 @@ namespace Domain
     {
         public override int CalculateRewardPoints(decimal amount)
         {
-            //  return (int)decimal.Floor(amount / SilverTransactionCostPerPoint);
+            //return (int)decimal.Floor(amount / SilverTransactionCostPerPoint);
             return (int)(amount / 1000) * 100;
         }
 
@@ -22,14 +22,14 @@ namespace Domain
                 throw new ArgumentException("Withdrawal amount must be positive.");
             }
 
-            if (Balance >= amount)
-            {
-                Balance -= amount;
-            }
-            else
-            {
-                throw new InvalidOperationException("Insufficient funds.");
-            }
+            //if (Balance >= amount)
+            //{
+            Balance -= amount;
+            //}
+           //else
+           // {
+           //     throw new InvalidOperationException("Insufficient funds.");
+           // }
         }
     }
 }

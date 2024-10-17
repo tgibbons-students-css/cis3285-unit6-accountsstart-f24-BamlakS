@@ -10,12 +10,12 @@ namespace Domain
     {
         public override int CalculateRewardPoints(decimal amount)
         {
-            // return Math.Max((int)decimal.Ceiling((Balance / PlatinumBalanceCostPerPoint) + (amount / PlatinumTransactionCostPerPoint)), 0);
-            return (int)(amount / 1000) * 300;
+            return Math.Max((int)decimal.Ceiling((Balance / PlatinumBalanceCostPerPoint) + (amount / PlatinumTransactionCostPerPoint)), 0);
+            //return (int)(amount / 1000) * 300;
         }
 
-        //private const int PlatinumTransactionCostPerPoint = 2;
-        //private const int PlatinumBalanceCostPerPoint = 1000;
+        private const int PlatinumTransactionCostPerPoint = 2;
+        private const int PlatinumBalanceCostPerPoint = 1000;
         public override void Withdraw(decimal amount)
         {
             if (amount <= 0)
